@@ -1,0 +1,50 @@
+<div class="data-container">
+
+  <table class="data-table">
+    <tr class="data-title">
+      <th>CLIENT_ID</th>
+      <th>CLIENT_NAME</th>
+      <th>COUNTER</th>
+      <th>DESCRIPTION</th>
+      <th>DEVICE</th>
+    </tr>
+    <tr class="data-data" *ngFor="let item of dataList.response">
+      <td>{{item.CLIENT_ID}}</td>
+      <td>{{item.CLIENT_NAME}}</td>
+      <td>{{item.COUNTER}}</td>
+      <td>{{item.DESCRIPTION}}</td>
+      <td>{{item.DEVICE}}</td>
+      <button class="data-moreinfo" (click)="moreInfo(myModal)">More Info</button>
+
+      <ng-template #myModal let-modal>
+
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">X</span>
+              </button>
+            </div>
+            <table>
+              <tr>
+                <th>ACTIVE</th>
+                <th>END_DATE</th>
+                <th>RELATIONS_IDS</th>
+                <th>START_DATE</th>
+                <th>WORK</th>
+              </tr>
+              <tr class="modal-body">
+                <td>{{item.MORE_INFO.ACTIVE}}</td>
+                <td>{{item.MORE_INFO.END_DATE}}</td>
+                <td>{{item.MORE_INFO.RELATIONS_IDS}}</td>
+                <td>{{item.MORE_INFO.START_DATE}}</td>
+                <td>{{item.MORE_INFO.WORK}}</td>
+              </tr>
+            </table>
+          </div>
+
+        </div>
+      </ng-template>
+    </tr>
+  </table>
+</div>

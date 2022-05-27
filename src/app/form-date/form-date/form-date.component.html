@@ -1,0 +1,7 @@
+<div class="form-container">
+  <h1 class="form-title">Please confirm today´s date</h1>
+  <form [formGroup]="dateForm" class="form-form">
+    <input class="form-input" type="date" [placeholder]="this.currentDate" formControlName="date">
+  </form>
+  <button class="form-confirm" type="submit" (click)="confirmDate(api_key)">Confirm</button>
+</div>
